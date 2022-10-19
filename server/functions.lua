@@ -8,3 +8,7 @@ elseif Config.Framework == "esx" then
     TriggerEvent("esx:getSharedObject", function(obj) Framework = obj end)
   end
 end
+
+Functions = {
+
+}

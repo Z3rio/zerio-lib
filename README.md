@@ -12,4 +12,4 @@ The resource is as optimized and as easy to use as possible.
 
 ## Links
 [**Store**](https://store.zerio-scripts.com/)
-[**Documentation**]()
+[**Documentation**](https://docs.zerio-scripts.com)

@@ -3,7 +3,6 @@ if Config.Framework == "qb-core" then
 elseif Config.Framework == "esx" then
   if ESX then
     Framework = ESX
-  end
   else
     TriggerEvent("esx:getSharedObject", function(obj) Framework = obj end)
   end

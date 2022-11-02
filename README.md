@@ -6,6 +6,10 @@ It is used to handle compatibility between different inventories, custom framewo
 ## Easy and smooth
 The resource is as optimized and as easy to use as possible.
 
+# Features
+- JSON Database Handler
+	> Used to handle small database functions, not recommended for larger operations. 
+
 ## Links
 [**Store**](https://store.zerio-scripts.com/)
 [**Documentation**]()

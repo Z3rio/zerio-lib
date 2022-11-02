@@ -19,5 +19,8 @@ client_scripts {
 server_scripts {
     "server/versioncheck.lua",
     "server/functions.lua",
+    "server/main.lua",
+    "dbs/*.lua",
+    "server/handler/*.lua",
     "server/frameworks/*.lua",
 }

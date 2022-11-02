@@ -1,1 +1,1 @@
-
+resName = GetCurrentResourceName()

@@ -85,6 +85,39 @@ local function NewDB(dbName, defaultData)
         SaveResourceFile(resName, "./db/" .. dbName .. ".json", json.encode(defaultData), -1)
     end
 
+    -- Table operations
+    function DBObj:TableInsert(key, value)
+        if CachedDBs[dbName][key] then
+            if type(CachedDBs[dbName][key]) == "table" then
+                table.insert(CachedDBs[dbName][key], value)
+            else
+                error("Key is not a table")
+            end
+        else
+            error("Key does not exist")
+        end
+
+        return CachedDBs[dbName]
+    end
+
+    function DBObj:TableRemove(key, index)
+        if CachedDBs[dbName][key] then
+            if type(CachedDBs[dbName][key]) == "table" then
+                if CachedDBs[dbName][key][index] then
+                    CachedDBs[dbName][key][index] = nil
+                else
+                    error("Index does not exist")
+                end
+            else
+                error("Key is not a table")
+            end
+        else
+            error("Key does not exist")
+        end
+
+        return CachedDBs[dbName]
+    end
+
     return DBObj
 end
 exports("NewDB", NewDB)

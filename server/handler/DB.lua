@@ -20,28 +20,7 @@ local function NewDB(dbName, defaultData)
         SaveResourceFile(resName, "./db/" .. dbName .. ".json", json.encode(defaultData), -1)
     end
 
-    -- Main
-    function DBObj:GetData()
-        return CachedDBs[dbName]
-    end
-
-    function DBObj:UpdateRawData(newValue)
-        if newValue then
-            if type(newValue) == "table" then
-                CachedDBs[dbName] = newValue
-            elseif type(newValue) == "string" then
-                CachedDBs[dbName] = json.decode(newValue)
-            else
-                error("Invalid type for new value")
-            end
-        else
-            error("Misisng new value")
-        end
-
-        return CachedDBs[dbName]
-    end
-
-    -- Keys
+    -- Normal operations
     function DBObj:AddKey(key, value)
         if CachedDBs[dbName][key] == nil then
             CachedDBs[dbName][key] = value
@@ -71,6 +50,27 @@ local function NewDB(dbName, defaultData)
             error("Invalid type of key or missing key")
         else
             CachedDBs[dbName][key] = nil
+        end
+
+        return CachedDBs[dbName]
+    end
+
+    -- Misc operations
+    function DBObj:GetData()
+        return CachedDBs[dbName]
+    end
+
+    function DBObj:UpdateRawData(newValue)
+        if newValue then
+            if type(newValue) == "table" then
+                CachedDBs[dbName] = newValue
+            elseif type(newValue) == "string" then
+                CachedDBs[dbName] = json.decode(newValue)
+            else
+                error("Invalid type for new value")
+            end
+        else
+            error("Misisng new value")
         end
 
         return CachedDBs[dbName]
